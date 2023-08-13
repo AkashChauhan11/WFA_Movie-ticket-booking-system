@@ -54,6 +54,7 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Visible = false;
             // 
             // button1
             // 
@@ -108,7 +109,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(324, 281);
+            this.button2.Location = new System.Drawing.Point(12, 12);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(115, 34);
             this.button2.TabIndex = 1;

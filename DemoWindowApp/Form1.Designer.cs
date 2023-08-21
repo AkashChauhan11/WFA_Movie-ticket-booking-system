@@ -47,11 +47,11 @@
             this.label10 = new System.Windows.Forms.Label();
             this.lblPrice = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblMovie = new System.Windows.Forms.Label();
+            this.lblTime = new System.Windows.Forms.Label();
             this.lblTotalSelSeat = new System.Windows.Forms.Label();
             this.lblSelectedSeats = new System.Windows.Forms.Label();
             this.lastRowLayout = new System.Windows.Forms.FlowLayoutPanel();
-            this.lblTime = new System.Windows.Forms.Label();
-            this.lblMovie = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox91)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox92)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox93)).BeginInit();
@@ -168,6 +168,7 @@
             this.button1.TabIndex = 7;
             this.button1.Text = "BOOK";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // pictureBox91
             // 
@@ -266,6 +267,24 @@
             this.panel1.Size = new System.Drawing.Size(418, 668);
             this.panel1.TabIndex = 6;
             // 
+            // lblMovie
+            // 
+            this.lblMovie.AutoSize = true;
+            this.lblMovie.Location = new System.Drawing.Point(165, 109);
+            this.lblMovie.Name = "lblMovie";
+            this.lblMovie.Size = new System.Drawing.Size(60, 20);
+            this.lblMovie.TabIndex = 20;
+            this.lblMovie.Text = "label11";
+            // 
+            // lblTime
+            // 
+            this.lblTime.AutoSize = true;
+            this.lblTime.Location = new System.Drawing.Point(165, 161);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(60, 20);
+            this.lblTime.TabIndex = 19;
+            this.lblTime.Text = "label11";
+            // 
             // lblTotalSelSeat
             // 
             this.lblTotalSelSeat.AutoSize = true;
@@ -291,24 +310,6 @@
             this.lastRowLayout.Name = "lastRowLayout";
             this.lastRowLayout.Size = new System.Drawing.Size(712, 114);
             this.lastRowLayout.TabIndex = 4;
-            // 
-            // lblTime
-            // 
-            this.lblTime.AutoSize = true;
-            this.lblTime.Location = new System.Drawing.Point(165, 161);
-            this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(60, 20);
-            this.lblTime.TabIndex = 19;
-            this.lblTime.Text = "label11";
-            // 
-            // lblMovie
-            // 
-            this.lblMovie.AutoSize = true;
-            this.lblMovie.Location = new System.Drawing.Point(165, 109);
-            this.lblMovie.Name = "lblMovie";
-            this.lblMovie.Size = new System.Drawing.Size(60, 20);
-            this.lblMovie.TabIndex = 20;
-            this.lblMovie.Text = "label11";
             // 
             // Form1
             // 

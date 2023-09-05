@@ -168,10 +168,10 @@ namespace DemoWindowApp
                 // Create a new MailMessage
                 MailMessage mail = new MailMessage();
                 mail.From = new MailAddress("akashchauhan11443@gmail.com");
-                mail.To.Add("dadharaviya732002@gmail.com");
+                mail.To.Add("akashchauhan191311@gmail.com");
                 mail.Subject = "Congratulation !! Ticket Booked for "+movieName;
-                mail.Body = "Dear"+"Dhaval"+"\n We are happy to inform you that your ticket for Movie is Successfully Booked! " +
-                    "\n Movie:+"+movieName+ "Date: 20-08-2023\nTime: "+time+"\n seats: "+seats+"\n Total Amount to Pay: "+price.ToString();
+                mail.Body = "Dear"+"Akash"+"\nWe are happy to inform you that your ticket for Movie is Successfully Booked! " +
+                    "\nMovie:"+movieName+ "\nDate: 20-08-2023\nTime: "+time+"\nseats: "+seats+"\nTotal Amount to Pay: "+price.ToString();
 
                 // Configure SMTP client
                 SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
@@ -278,13 +278,14 @@ namespace DemoWindowApp
             cmd.Parameters.AddWithValue("@Seats", seats);
             cmd.ExecuteNonQuery();
             MessageBox.Show("Ticket Booked Successfully");
-            sendEmail();
+            //sendEmail();
             seats = "";
             totalSeatSelected = 0;
             price = 0;
             lblPrice.Text = "₹ " + price.ToString();
             lblTotalSelSeat.Text = totalSeatSelected.ToString();
             lblSelectedSeats.Text = seats;
+            InitializeComponent();
             
             conn.Close();
         }

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_screen = new System.Windows.Forms.Label();
             this.frontRowLayout = new System.Windows.Forms.FlowLayoutPanel();
             this.midRowLayout = new System.Windows.Forms.FlowLayoutPanel();
             this.splitter1 = new System.Windows.Forms.Splitter();
@@ -58,22 +58,22 @@
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // lbl_screen
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Mongolian Baiti", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label1.Location = new System.Drawing.Point(260, 16);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(210, 43);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "SCREEN 1";
+            this.lbl_screen.AutoSize = true;
+            this.lbl_screen.Font = new System.Drawing.Font("Mongolian Baiti", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_screen.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.lbl_screen.Location = new System.Drawing.Point(260, 16);
+            this.lbl_screen.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_screen.Name = "lbl_screen";
+            this.lbl_screen.Size = new System.Drawing.Size(210, 43);
+            this.lbl_screen.TabIndex = 1;
+            this.lbl_screen.Text = "SCREEN 1";
             // 
             // frontRowLayout
             // 
             this.frontRowLayout.Location = new System.Drawing.Point(51, 94);
-            this.frontRowLayout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.frontRowLayout.Margin = new System.Windows.Forms.Padding(4);
             this.frontRowLayout.Name = "frontRowLayout";
             this.frontRowLayout.Size = new System.Drawing.Size(633, 104);
             this.frontRowLayout.TabIndex = 2;
@@ -82,7 +82,7 @@
             // midRowLayout
             // 
             this.midRowLayout.Location = new System.Drawing.Point(51, 214);
-            this.midRowLayout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.midRowLayout.Margin = new System.Windows.Forms.Padding(4);
             this.midRowLayout.Name = "midRowLayout";
             this.midRowLayout.Size = new System.Drawing.Size(633, 210);
             this.midRowLayout.TabIndex = 3;
@@ -174,7 +174,7 @@
             // 
             this.pictureBox91.BackColor = System.Drawing.Color.Silver;
             this.pictureBox91.Location = new System.Drawing.Point(31, 381);
-            this.pictureBox91.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox91.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox91.Name = "pictureBox91";
             this.pictureBox91.Size = new System.Drawing.Size(55, 34);
             this.pictureBox91.TabIndex = 10;
@@ -185,7 +185,7 @@
             this.pictureBox92.BackColor = System.Drawing.Color.Lime;
             this.pictureBox92.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox92.Location = new System.Drawing.Point(31, 431);
-            this.pictureBox92.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox92.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox92.Name = "pictureBox92";
             this.pictureBox92.Size = new System.Drawing.Size(55, 34);
             this.pictureBox92.TabIndex = 11;
@@ -195,7 +195,7 @@
             // 
             this.pictureBox93.BackColor = System.Drawing.Color.Red;
             this.pictureBox93.Location = new System.Drawing.Point(31, 480);
-            this.pictureBox93.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox93.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox93.Name = "pictureBox93";
             this.pictureBox93.Size = new System.Drawing.Size(55, 34);
             this.pictureBox93.TabIndex = 12;
@@ -306,7 +306,7 @@
             // lastRowLayout
             // 
             this.lastRowLayout.Location = new System.Drawing.Point(51, 453);
-            this.lastRowLayout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lastRowLayout.Margin = new System.Windows.Forms.Padding(4);
             this.lastRowLayout.Name = "lastRowLayout";
             this.lastRowLayout.Size = new System.Drawing.Size(633, 91);
             this.lastRowLayout.TabIndex = 4;
@@ -321,8 +321,8 @@
             this.Controls.Add(this.lastRowLayout);
             this.Controls.Add(this.midRowLayout);
             this.Controls.Add(this.frontRowLayout);
-            this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Controls.Add(this.lbl_screen);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -337,7 +337,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl_screen;
         private System.Windows.Forms.FlowLayoutPanel frontRowLayout;
         private System.Windows.Forms.FlowLayoutPanel midRowLayout;
         private System.Windows.Forms.Splitter splitter1;

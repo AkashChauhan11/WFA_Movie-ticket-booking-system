@@ -18,21 +18,23 @@ namespace DemoWindowApp
     {
         SqlConnection conn;
         SqlDataReader sdr;
-        public Form1()
+
+        public Form1(int screenNo,string movieName,string showTime, string date)
         {
+            
             InitializeComponent();
             conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Akash\\Source\\Repos\\WFA_Movie-ticket-booking-system\\DemoWindowApp\\Database1.mdf;Integrated Security=True");
+            this.movieName = movieName;
+            this.time = showTime;
+            this.screenNo = screenNo;
+
+            lblTime.Text = date;
+            lbl_screen.Text = "SCREEN " + screenNo.ToString();
             setMovieAndTime();
             getBookedSeats();
             firstRow(btn_clicked);
             midRow(btn_clicked);
             lastRow(btn_clicked);
-            
-
-            //connection with data base
-           
-            
-
         }
 
         double price=0;
@@ -43,8 +45,8 @@ namespace DemoWindowApp
         int totalSeatSelected = 0;
         string seats = "";
         int screenNo = 1;
-        string movieName = "Black Panther";
-        string time = "3 pm - 6 pm";
+       public string movieName = "";
+        string time = "";
         List<string> bookedSeats= new List<string>();
 
         public void setMovieAndTime()
@@ -103,6 +105,11 @@ namespace DemoWindowApp
 
         public void resetScreen()
         {
+            frontRowLayout.Controls.Clear();
+            midRowLayout.Controls.Clear();
+            lastRowLayout.Controls.Clear();
+            seats = "";
+            selectedSeats.Clear();
             getBookedSeats();
             firstRow(btn_clicked);
             midRow(btn_clicked);
@@ -285,9 +292,9 @@ namespace DemoWindowApp
             lblPrice.Text = "₹ " + price.ToString();
             lblTotalSelSeat.Text = totalSeatSelected.ToString();
             lblSelectedSeats.Text = seats;
-            InitializeComponent();
-            
             conn.Close();
+            this.resetScreen(); 
+            
         }
     }
 }

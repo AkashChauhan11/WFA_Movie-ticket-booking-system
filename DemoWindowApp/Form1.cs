@@ -18,21 +18,23 @@ namespace DemoWindowApp
     {
         SqlConnection conn;
         SqlDataReader sdr;
-        public Form1()
+
+        public Form1(int screenNo,string movieName,string showTime, string date)
         {
+            
             InitializeComponent();
             conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Akash\\Source\\Repos\\WFA_Movie-ticket-booking-system\\DemoWindowApp\\Database1.mdf;Integrated Security=True");
+            this.movieName = movieName;
+            this.time = showTime;
+            this.screenNo = screenNo;
+
+            lblTime.Text = date;
+            lbl_screen.Text = "SCREEN " + screenNo.ToString();
             setMovieAndTime();
             getBookedSeats();
             firstRow(btn_clicked);
             midRow(btn_clicked);
             lastRow(btn_clicked);
-            
-
-            //connection with data base
-           
-            
-
         }
 
         double price=0;
@@ -43,8 +45,8 @@ namespace DemoWindowApp
         int totalSeatSelected = 0;
         string seats = "";
         int screenNo = 1;
-        string movieName = "Black Panther";
-        string time = "3 pm - 6 pm";
+       public string movieName = "";
+        string time = "";
         List<string> bookedSeats= new List<string>();
 
         public void setMovieAndTime()
@@ -103,6 +105,11 @@ namespace DemoWindowApp
 
         public void resetScreen()
         {
+            frontRowLayout.Controls.Clear();
+            midRowLayout.Controls.Clear();
+            lastRowLayout.Controls.Clear();
+            seats = "";
+            selectedSeats.Clear();
             getBookedSeats();
             firstRow(btn_clicked);
             midRow(btn_clicked);
@@ -168,10 +175,10 @@ namespace DemoWindowApp
                 // Create a new MailMessage
                 MailMessage mail = new MailMessage();
                 mail.From = new MailAddress("akashchauhan11443@gmail.com");
-                mail.To.Add("dadharaviya732002@gmail.com");
+                mail.To.Add("akashchauhan191311@gmail.com");
                 mail.Subject = "Congratulation !! Ticket Booked for "+movieName;
-                mail.Body = "Dear"+"Dhaval"+"\n We are happy to inform you that your ticket for Movie is Successfully Booked! " +
-                    "\n Movie:+"+movieName+ "Date: 20-08-2023\nTime: "+time+"\n seats: "+seats+"\n Total Amount to Pay: "+price.ToString();
+                mail.Body = "Dear"+"Akash"+"\nWe are happy to inform you that your ticket for Movie is Successfully Booked! " +
+                    "\nMovie:"+movieName+ "\nDate: 20-08-2023\nTime: "+time+"\nseats: "+seats+"\nTotal Amount to Pay: "+price.ToString();
 
                 // Configure SMTP client
                 SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
@@ -278,15 +285,16 @@ namespace DemoWindowApp
             cmd.Parameters.AddWithValue("@Seats", seats);
             cmd.ExecuteNonQuery();
             MessageBox.Show("Ticket Booked Successfully");
-            sendEmail();
+            //sendEmail();
             seats = "";
             totalSeatSelected = 0;
             price = 0;
             lblPrice.Text = "₹ " + price.ToString();
             lblTotalSelSeat.Text = totalSeatSelected.ToString();
             lblSelectedSeats.Text = seats;
-            
             conn.Close();
+            this.resetScreen(); 
+            
         }
     }
 }

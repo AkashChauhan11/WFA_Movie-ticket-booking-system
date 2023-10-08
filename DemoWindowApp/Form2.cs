@@ -15,12 +15,15 @@ namespace DemoWindowApp
     {
         SqlConnection conn;
         SqlDataReader sdr;
+        
         public Form2()
         {
+            
             InitializeComponent();
-            conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Akash\\Source\\Repos\\WFA_Movie-ticket-booking-system\\DemoWindowApp\\Database1.mdf;Integrated Security=True");
+            conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\Akash\\Downloads\\WFA_Movie-ticket-booking-system (1)\\WFA_Movie-ticket-booking-system\\DemoWindowApp\\Database1.mdf\";Integrated Security=True");
             getInitialdata();
         }
+       
 
        public void getInitialdata()
         {
@@ -43,7 +46,7 @@ namespace DemoWindowApp
                     lbl_movie_s2.Text = sdr["MovieName"].ToString();
                     lbl_lang_s2.Text = sdr["Language"].ToString();
                     string screen2PicPath = sdr["poster"].ToString();
-                    pictureBox2.Image = Image.FromFile(@screen2PicPath);
+                   pictureBox2.Image = Image.FromFile(@screen2PicPath);
                 }
                 if (screen == "3")
                 {
@@ -75,21 +78,45 @@ namespace DemoWindowApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form1 form = new Form1(screenNo:1,movieName:lbl_movie_s1.Text,showTime:dd_showTime_s1.Text,date:date_picker.SelectionRange.Start.ToShortDateString());
-            form.Show();
+            if (dd_showTime_s1.Text == "")
+            {
+                MessageBox.Show("Please Select Time of show");
+            }
+            else
+            {
+                Form1 form = new Form1(screenNo: 1, movieName: lbl_movie_s1.Text, showTime: dd_showTime_s1.Text, date: date_picker.SelectionRange.Start.ToShortDateString());
+                form.Show();
+            }
+            
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Form1 form = new Form1(screenNo: 2, movieName: lbl_movie_s2.Text, showTime: dd_showTime_s2.Text, date: date_picker.SelectionRange.Start.ToShortDateString());
-            form.Show();
+            if (dd_showTime_s2.Text == "")
+            {
+                MessageBox.Show("Please Select Time of show");
+            }
+            else
+            {
+                Form1 form = new Form1(screenNo: 2, movieName: lbl_movie_s2.Text, showTime: dd_showTime_s2.Text, date: date_picker.SelectionRange.Start.ToShortDateString());
+                form.Show();
+            }
+           
 
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            Form1 form = new Form1(screenNo: 3, movieName: lbl_movie_s3.Text, showTime: dd_showTime_s3.Text, date: date_picker.SelectionRange.Start.ToShortDateString());
-            form.Show();
+            if (dd_showTime_s3.Text == "")
+            {
+                MessageBox.Show("Please Select Time of show");
+            }
+            else
+            {
+                Form1 form = new Form1(screenNo: 3, movieName: lbl_movie_s3.Text, showTime: dd_showTime_s3.Text, date: date_picker.SelectionRange.Start.ToShortDateString());
+                form.Show();
+            }
+           
         }
 
         public void resetScreen()
@@ -98,6 +125,24 @@ namespace DemoWindowApp
             InitializeComponent();
             getInitialdata();
 
+        }
+
+    
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            resetScreen();
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            var form = new Form4();
+            form.Show();
         }
     }
 }

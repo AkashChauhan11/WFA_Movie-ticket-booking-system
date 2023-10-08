@@ -18,7 +18,7 @@ namespace DemoWindowApp
         public ManageMovieScreen()
         {
             InitializeComponent();
-            conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Akash\\Source\\Repos\\WFA_Movie-ticket-booking-system\\DemoWindowApp\\Database1.mdf;Integrated Security=True");
+            conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\Akash\\Downloads\\WFA_Movie-ticket-booking-system (1)\\WFA_Movie-ticket-booking-system\\DemoWindowApp\\Database1.mdf\";Integrated Security=True");
             getInitialdata();
         }
 
@@ -56,6 +56,9 @@ namespace DemoWindowApp
                     txt_movie_s1.Text = screen1MovieName;
                     txt_lang_s1.Text = screen1MovieLang;
                     picBox_screen1.Image = Image.FromFile(@screen1PicPath);
+                    txt_price_sc1_sl1.Text = sdr["Slote1price"].ToString();
+                    txt_price_sc1_sl2.Text = sdr["Slote2price"].ToString();
+                    txt_price_sc1_sl3.Text = sdr["Slote3price"].ToString();
                 }
                 if (screen == "2")
                 {
@@ -65,6 +68,9 @@ namespace DemoWindowApp
                     txt_movie_s2.Text = screen2MovieName;
                     txt_lang_s2.Text = screen2MovieLang;
                     picBox_screen2.Image = Image.FromFile(@screen2PicPath);
+                    txt_price_sc2_sl1.Text = sdr["Slote1price"].ToString();
+                    txt_price_sc2_sl2.Text = sdr["Slote2price"].ToString();
+                    txt_price_sc2_sl3.Text = sdr["Slote3price"].ToString();
                 }
                 if (screen == "3")
                 {
@@ -74,6 +80,9 @@ namespace DemoWindowApp
                     txt_movie_s3.Text = screen3MovieName;
                     txt_lang_s3.Text = screen3MovieLang;
                     picBox_screen3.Image = Image.FromFile(@screen3PicPath);
+                    txt_price_sc3_sl1.Text = sdr["Slote1price"].ToString();
+                    txt_price_sc3_sl2.Text = sdr["Slote2price"].ToString();
+                    txt_price_sc3_sl3.Text = sdr["Slote3price"].ToString();
                 }
 
             }
@@ -123,31 +132,55 @@ namespace DemoWindowApp
         private void btn_update_s1_Click(object sender, EventArgs e)
         {
             conn.Open();
-            string sql = "UPDATE Moviedetails SET MovieName=@MovieName, Language=@Language,poster=@poster WHERE screenNo=1";
+            string sql = "UPDATE Moviedetails SET MovieName=@MovieName, Language=@Language,poster=@poster,Slote1price=@Slote1price,Slote2price=@Slote2price,Slote3price=@Slote3price WHERE screenNo=1";
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@MovieName",txt_movie_s1.Text);
             cmd.Parameters.AddWithValue("@Language", txt_lang_s1.Text);
             cmd.Parameters.AddWithValue("@poster", screen1PicPath);
+            cmd.Parameters.AddWithValue("@Slote1price", txt_price_sc1_sl1.Text);
+            cmd.Parameters.AddWithValue("@Slote2price", txt_price_sc1_sl2.Text);
+            cmd.Parameters.AddWithValue("@Slote3price", txt_price_sc1_sl3.Text);
             cmd.ExecuteNonQuery();
 
            
-            string sql2 = "UPDATE Moviedetails SET MovieName=@MovieName, Language=@Language,poster=@poster WHERE screenNo=2";
+            string sql2 = "UPDATE Moviedetails SET MovieName=@MovieName, Language=@Language,poster=@poster,Slote1price=@Slote1price,Slote2price=@Slote2price,Slote3price=@Slote3price WHERE screenNo=2";
             SqlCommand cmd2 = new SqlCommand(sql2, conn);
             cmd2.Parameters.AddWithValue("@MovieName", txt_movie_s2.Text);
             cmd2.Parameters.AddWithValue("@Language", txt_lang_s2.Text);
             cmd2.Parameters.AddWithValue("@poster", screen2PicPath);
+            cmd2.Parameters.AddWithValue("@Slote1price", txt_price_sc2_sl1.Text);
+            cmd2.Parameters.AddWithValue("@Slote2price", txt_price_sc2_sl2.Text);
+            cmd2.Parameters.AddWithValue("@Slote3price", txt_price_sc2_sl3.Text);
             cmd2.ExecuteNonQuery();
 
-            string sql3 = "UPDATE Moviedetails SET MovieName=@MovieName, Language=@Language,poster=@poster WHERE screenNo=3";
+            string sql3 = "UPDATE Moviedetails SET MovieName=@MovieName, Language=@Language,poster=@poster,Slote1price=@Slote1price,Slote2price=@Slote2price,Slote3price=@Slote3price WHERE screenNo=3";
             SqlCommand cmd3 = new SqlCommand(sql3, conn);
             cmd3.Parameters.AddWithValue("@MovieName", txt_movie_s3.Text);
             cmd3.Parameters.AddWithValue("@Language", txt_lang_s3.Text);
             cmd3.Parameters.AddWithValue("@poster", screen3PicPath);
+            cmd3.Parameters.AddWithValue("@Slote1price", txt_price_sc3_sl1.Text);
+            cmd3.Parameters.AddWithValue("@Slote2price", txt_price_sc3_sl2.Text);
+            cmd3.Parameters.AddWithValue("@Slote3price", txt_price_sc3_sl3.Text);
             cmd3.ExecuteNonQuery();
 
             MessageBox.Show("Update successsfull");
             conn.Close();
             this.Close();
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
 
         }
     }

@@ -23,14 +23,14 @@ namespace DemoWindowApp
         {
             
             InitializeComponent();
-            conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Akash\\Source\\Repos\\WFA_Movie-ticket-booking-system\\DemoWindowApp\\Database1.mdf;Integrated Security=True");
+            conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\Akash\\Downloads\\WFA_Movie-ticket-booking-system (1)\\WFA_Movie-ticket-booking-system\\DemoWindowApp\\Database1.mdf\";Integrated Security=True");
             this.movieName = movieName;
             this.time = showTime;
             this.screenNo = screenNo;
-
+            this.date=date;
             lblTime.Text = date;
             lbl_screen.Text = "SCREEN " + screenNo.ToString();
-            setMovieAndTime();
+            setMovieAndTimeAndPrice();
             getBookedSeats();
             firstRow(btn_clicked);
             midRow(btn_clicked);
@@ -47,22 +47,37 @@ namespace DemoWindowApp
         int screenNo = 1;
        public string movieName = "";
         string time = "";
+        string date = "";
         List<string> bookedSeats= new List<string>();
 
-        public void setMovieAndTime()
+        public void setMovieAndTimeAndPrice()
         {
             lblMovie.Text= movieName;
             lblTime.Text= time;
+
+            string sql = "SELECT * FROM Moviedetails where screenNo=@screenNo";
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@screenNo", screenNo);
+            sdr = cmd.ExecuteReader();
+            if (sdr.Read())
+            {
+                firstRowSeatPrice = Convert.ToDouble(sdr["Slote1price"]);
+                secondRowSeatPrice = Convert.ToDouble(sdr["Slote2price"]);
+                lastRowSeatPrice = Convert.ToDouble(sdr["Slote3price"]);
+            }
+            conn.Close();
         }
 
         public void getBookedSeats()
         {
-            string sql = "SELECT * FROM BookedTickets where (MovieName=@MovieName AND Time=@Time AND ScreenNo=@ScreenNo)";
+            string sql = "SELECT * FROM BookedTickets where (MovieName=@MovieName AND Time=@Time AND ScreenNo=@ScreenNo AND Date=@Date)";
             conn.Open();
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@MovieName", movieName);
             cmd.Parameters.AddWithValue("@Time", time);
             cmd.Parameters.AddWithValue("@ScreenNo", screenNo);
+            cmd.Parameters.AddWithValue("@Date", date);
             sdr = cmd.ExecuteReader();
             while (sdr.Read())
             {
@@ -77,7 +92,8 @@ namespace DemoWindowApp
         }
 
         public void firstRow(EventHandler click) {
-            for(int i = 1; i <= 18; i++)
+         
+            for (int i = 1; i <= 18; i++)
             {
                 Button btn = new System.Windows.Forms.Button();
 
@@ -177,7 +193,7 @@ namespace DemoWindowApp
                 mail.From = new MailAddress("akashchauhan11443@gmail.com");
                 mail.To.Add("akashchauhan191311@gmail.com");
                 mail.Subject = "Congratulation !! Ticket Booked for "+movieName;
-                mail.Body = "Dear"+"Akash"+"\nWe are happy to inform you that your ticket for Movie is Successfully Booked! " +
+                mail.Body = "Dear "+"Akash"+"\nWe are happy to inform you that your ticket for Movie is Successfully Booked! " +
                     "\nMovie:"+movieName+ "\nDate: 20-08-2023\nTime: "+time+"\nseats: "+seats+"\nTotal Amount to Pay: "+price.ToString();
 
                 // Configure SMTP client
@@ -275,7 +291,15 @@ namespace DemoWindowApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string sql = "INSERT INTO  BookedTickets(MovieName,Time,ScreenNo,UserEmail,Seats) VALUES (@MovieName,@Time,@ScreenNo,@UserEmail,@Seats)";
+            if (seats == "")
+            {
+                MessageBox.Show("Please Select Seats");
+                return;
+            }else if(txt_user_email.Text==""){
+                MessageBox.Show("Please Enter Email of User");
+                return;
+            }
+            string sql = "INSERT INTO  BookedTickets(MovieName,Time,ScreenNo,UserEmail,Seats,Date) VALUES (@MovieName,@Time,@ScreenNo,@UserEmail,@Seats,@Date)";
             conn.Open();
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@MovieName", movieName);
@@ -283,9 +307,10 @@ namespace DemoWindowApp
             cmd.Parameters.AddWithValue("@ScreenNo", screenNo);
             cmd.Parameters.AddWithValue("@UserEmail", "akashchauhan11443@gmail.com");
             cmd.Parameters.AddWithValue("@Seats", seats);
+            cmd.Parameters.AddWithValue("@Date", date);
             cmd.ExecuteNonQuery();
             MessageBox.Show("Ticket Booked Successfully");
-            //sendEmail();
+            sendEmail();
             seats = "";
             totalSeatSelected = 0;
             price = 0;

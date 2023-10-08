@@ -35,16 +35,20 @@
             this.dd_showTime_s3 = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.lbl_lang_s3 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
+            this.lbl_movie_s3 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.dd_showTime_s2 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.lbl_lang_s2 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
+            this.lbl_movie_s2 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
@@ -61,10 +65,6 @@
             this.button4 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.button7 = new System.Windows.Forms.Button();
-            this.lbl_lang_s2 = new System.Windows.Forms.Label();
-            this.lbl_movie_s2 = new System.Windows.Forms.Label();
-            this.lbl_lang_s3 = new System.Windows.Forms.Label();
-            this.lbl_movie_s3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -82,7 +82,7 @@
             // 
             // date_picker
             // 
-            this.date_picker.Location = new System.Drawing.Point(7, 18);
+            this.date_picker.Location = new System.Drawing.Point(18, 129);
             this.date_picker.MaxSelectionCount = 1;
             this.date_picker.Name = "date_picker";
             this.date_picker.TabIndex = 0;
@@ -156,6 +156,16 @@
             this.panel9.Size = new System.Drawing.Size(326, 126);
             this.panel9.TabIndex = 1;
             // 
+            // lbl_lang_s3
+            // 
+            this.lbl_lang_s3.AutoSize = true;
+            this.lbl_lang_s3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_lang_s3.Location = new System.Drawing.Point(7, 88);
+            this.lbl_lang_s3.Name = "lbl_lang_s3";
+            this.lbl_lang_s3.Size = new System.Drawing.Size(61, 25);
+            this.lbl_lang_s3.TabIndex = 6;
+            this.lbl_lang_s3.Text = "hINDI";
+            // 
             // panel10
             // 
             this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -174,6 +184,17 @@
             this.label6.Size = new System.Drawing.Size(147, 30);
             this.label6.TabIndex = 0;
             this.label6.Text = "SCREEN 3";
+            // 
+            // lbl_movie_s3
+            // 
+            this.lbl_movie_s3.AutoSize = true;
+            this.lbl_movie_s3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_movie_s3.Location = new System.Drawing.Point(7, 55);
+            this.lbl_movie_s3.Name = "lbl_movie_s3";
+            this.lbl_movie_s3.Size = new System.Drawing.Size(114, 29);
+            this.lbl_movie_s3.TabIndex = 5;
+            this.lbl_movie_s3.Text = "GADAR 2";
+            this.lbl_movie_s3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox3
             // 
@@ -243,6 +264,16 @@
             this.panel6.Size = new System.Drawing.Size(326, 126);
             this.panel6.TabIndex = 1;
             // 
+            // lbl_lang_s2
+            // 
+            this.lbl_lang_s2.AutoSize = true;
+            this.lbl_lang_s2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_lang_s2.Location = new System.Drawing.Point(7, 86);
+            this.lbl_lang_s2.Name = "lbl_lang_s2";
+            this.lbl_lang_s2.Size = new System.Drawing.Size(61, 25);
+            this.lbl_lang_s2.TabIndex = 4;
+            this.lbl_lang_s2.Text = "hINDI";
+            // 
             // panel7
             // 
             this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -261,6 +292,17 @@
             this.label4.Size = new System.Drawing.Size(147, 30);
             this.label4.TabIndex = 0;
             this.label4.Text = "SCREEN 2";
+            // 
+            // lbl_movie_s2
+            // 
+            this.lbl_movie_s2.AutoSize = true;
+            this.lbl_movie_s2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_movie_s2.Location = new System.Drawing.Point(7, 52);
+            this.lbl_movie_s2.Name = "lbl_movie_s2";
+            this.lbl_movie_s2.Size = new System.Drawing.Size(114, 29);
+            this.lbl_movie_s2.TabIndex = 3;
+            this.lbl_movie_s2.Text = "GADAR 2";
+            this.lbl_movie_s2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox2
             // 
@@ -386,7 +428,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(21, 266);
+            this.button2.Location = new System.Drawing.Point(18, 385);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(262, 72);
             this.button2.TabIndex = 2;
@@ -397,12 +439,13 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(21, 385);
+            this.button3.Location = new System.Drawing.Point(21, 508);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(262, 72);
             this.button3.TabIndex = 3;
             this.button3.Text = "Change Password";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
             // button4
             // 
@@ -413,6 +456,7 @@
             this.button4.TabIndex = 4;
             this.button4.Text = "Exit";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // label7
             // 
@@ -426,55 +470,13 @@
             // 
             // button7
             // 
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(21, 511);
+            this.button7.Location = new System.Drawing.Point(1219, 48);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(262, 72);
+            this.button7.Size = new System.Drawing.Size(131, 38);
             this.button7.TabIndex = 6;
-            this.button7.Text = "Manage Rates";
+            this.button7.Text = "🔃 Refresh";
             this.button7.UseVisualStyleBackColor = true;
-            // 
-            // lbl_lang_s2
-            // 
-            this.lbl_lang_s2.AutoSize = true;
-            this.lbl_lang_s2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_lang_s2.Location = new System.Drawing.Point(7, 86);
-            this.lbl_lang_s2.Name = "lbl_lang_s2";
-            this.lbl_lang_s2.Size = new System.Drawing.Size(61, 25);
-            this.lbl_lang_s2.TabIndex = 4;
-            this.lbl_lang_s2.Text = "hINDI";
-            // 
-            // lbl_movie_s2
-            // 
-            this.lbl_movie_s2.AutoSize = true;
-            this.lbl_movie_s2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_movie_s2.Location = new System.Drawing.Point(7, 52);
-            this.lbl_movie_s2.Name = "lbl_movie_s2";
-            this.lbl_movie_s2.Size = new System.Drawing.Size(114, 29);
-            this.lbl_movie_s2.TabIndex = 3;
-            this.lbl_movie_s2.Text = "GADAR 2";
-            this.lbl_movie_s2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbl_lang_s3
-            // 
-            this.lbl_lang_s3.AutoSize = true;
-            this.lbl_lang_s3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_lang_s3.Location = new System.Drawing.Point(7, 88);
-            this.lbl_lang_s3.Name = "lbl_lang_s3";
-            this.lbl_lang_s3.Size = new System.Drawing.Size(61, 25);
-            this.lbl_lang_s3.TabIndex = 6;
-            this.lbl_lang_s3.Text = "hINDI";
-            // 
-            // lbl_movie_s3
-            // 
-            this.lbl_movie_s3.AutoSize = true;
-            this.lbl_movie_s3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_movie_s3.Location = new System.Drawing.Point(7, 55);
-            this.lbl_movie_s3.Name = "lbl_movie_s3";
-            this.lbl_movie_s3.Size = new System.Drawing.Size(114, 29);
-            this.lbl_movie_s3.TabIndex = 5;
-            this.lbl_movie_s3.Text = "GADAR 2";
-            this.lbl_movie_s3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // Form2
             // 
@@ -550,12 +552,12 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Label lbl_movie_s1;
         private System.Windows.Forms.Label lbl_lang_s1;
         private System.Windows.Forms.Label lbl_lang_s3;
         private System.Windows.Forms.Label lbl_movie_s3;
         private System.Windows.Forms.Label lbl_lang_s2;
         private System.Windows.Forms.Label lbl_movie_s2;
+        private System.Windows.Forms.Button button7;
     }
 }
